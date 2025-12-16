@@ -233,17 +233,17 @@ def handle_grab(bot, msg, bot_num):
 
         if watermelon_grab_enabled:
             def check_for_watermelon_patiently():
-                print(f"[WATERMELON | Bot {bot_num}] 🍉 Bắt đầu canh dưa (chờ 5 giây)...", flush=True)
+                print(f"[WATERMELON | Bot {bot_num}] 🎀 Bắt đầu canh dưa (chờ 5 giây)...", flush=True)
                 time.sleep(5) 
                 try:
                     target_message = bot.getMessage(channel_id, last_drop_msg_id).json()[0]
                     reactions = target_message.get('reactions', [])
                     for reaction in reactions:
                         emoji_name = reaction.get('emoji', {}).get('name', '')
-                        if '🍉' in emoji_name or 'watermelon' in emoji_name.lower() or 'dua' in emoji_name.lower():
+                        if '🎀' in emoji_name or 'watermelon' in emoji_name.lower() or 'dua' in emoji_name.lower():
                             print(f"[WATERMELON | Bot {bot_num}] 🎯 PHÁT HIỆN DƯA HẤU!", flush=True)
                             try:
-                                bot.addReaction(channel_id, last_drop_msg_id, "🍉")
+                                bot.addReaction(channel_id, last_drop_msg_id, "🎀")
                                 print(f"[WATERMELON | Bot {bot_num}] ✅ NHẶT DỰA THÀNH CÔNG!", flush=True)
                             except Exception as e:
                                 print(f"[WATERMELON | Bot {bot_num}] ❌ Lỗi react khi đã thấy dưa: {e}", flush=True)
